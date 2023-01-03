@@ -6,9 +6,6 @@ const JourneyTimes = () => {
   useEffect(() => {
     const fetchData = async () => {
 
-      console.log('la clé');
-      console.log(process.env.REACT_APP_SNCF_API_KEY);
-
       const currentTime = new Date().toISOString();
       const result = await fetch(
         `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=2`,
