@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const JourneyTimes = () => {
   const [response, setResponse] = useState({});
@@ -7,12 +6,17 @@ const JourneyTimes = () => {
   useEffect(() => {
     const fetchData = async () => {
       const currentTime = new Date().toISOString();
-      const result = await axios(
+      const result = await fetch(
         `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=5`,
-        { auth: ['a27f39bc-3865-4451-8790-01f23ef38bd4', ''] }
+        {
+          headers: {
+            Authorization: 'a27f39bc-3865-4451-8790-01f23ef38bd4',
+          },
+        }
       );
-      console.log(result.data); // log the data returned from the API
-      setResponse(result.data);
+      const data = await result.json(); // parse the response as JSON
+      console.log(data); // log the data returned from the API
+      setResponse(data);
     };
 
     fetchData();
@@ -20,18 +24,24 @@ const JourneyTimes = () => {
 
   const rows = [];
 
-  for (let r = 0; r < 2; r++) {
-    const session = response['journeys'][r]['sections'][1];
-    if ('stop_date_times' in session) {
-      for (const i of session['stop_date_times']) {
-        rows.push({
-          name: i['stop_point']['name'],
-          depart: i['departure_date_time'],
-          arrivee: i['arrival_date_time']
-        });
+  if (response.hasOwnProperty('journeys') && Array.isArray(response.journeys)) {
+    for (const journey of response.journeys) {
+      if (journey.hasOwnProperty('sections') && Array.isArray(journey.sections)) {
+        for (const session of journey.sections) {
+          if (session.hasOwnProperty('stop_date_times') && session.stop_date_times.length > 0) {
+            for (const stop of session.stop_date_times) {
+              rows.push({
+                name: stop.stop_point.name,
+                depart: stop.departure_date_time,
+                arrivee: stop.arrival_date_time,
+              });
+            }
+          }
+        }
       }
     }
   }
+  
 
   return (
     <div>
