@@ -14,12 +14,12 @@ function createFormattedDate(dateString) {
 
 const JourneyTimes = () => {
   const [response, setResponse] = useState({});
-  const [selectedValue, setSelectedValue] = useState(15); // curseur
+  const [selectedValue, setSelectedValue] = useState(60); // curseur
 
   const fetchData = async () => {
     const currentTime = new Date().toISOString();
     const result = await fetch(
-      `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=4`,
+      `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=6`,
       {
         headers: {
           Authorization:  process.env.REACT_APP_SNCF_API_KEY,
@@ -66,8 +66,8 @@ const JourneyTimes = () => {
         {/* Display the slider */}
         <input
           type="range"
-          min={15}
-          max={30}
+          min={10}
+          max={60}
           value={selectedValue}
           step="5"
           onChange={(event) => {
@@ -117,7 +117,7 @@ const JourneyTimes = () => {
         
       </div>
       <div  style ={{display: "flex", flexDirection: "column", margin: 'auto',marginTop : '100px' }} >
-      <button onClick={fetchData} style={{width: '80px'}} >Refresh</button>
+      <button onClick={fetchData} style={{width: '80px',height : '50px',borderRadius :'2px'}} >Refresh</button>
       </div>
     </div>
   );
