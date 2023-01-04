@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React , { useState } from 'react';
+import JourneyTimes from './JourneyTimes';
 
 function createFormattedDate(dateString) {
   const year = dateString.substring(0,4);
@@ -63,69 +64,39 @@ const JourneyTimes = () => {
 
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px'}}>
-        {/* Display the slider */}
-        <input
-          type="range"
-          min={10}
-          max={60}
-          value={selectedValue}
-          step="5"
-          onChange={(event) => {
-            setSelectedValue(event.target.value);
-          }}
-          style={{ height: "5px", width: "100px", margin: "auto",marginTop : '20px' }}
-        />
-        {/* Display the selected value */}
-        <p style={{ fontSize: "12px", margin: "auto", justifyContent: "center",paddingTop : '10px' }}>
-          Temps Max: {selectedValue}
-        </p>
+   
+  <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px'}}>
+       
+  {/* Display the slider */}
+  <input
+    type="range"
+    min={10}
+    max={60}
+    value={selectedValue}
+    step="5"
+    onChange={(event) => {
+      setSelectedValue(event.target.value);
+    }}
+    style={{ height: "5px", width: "150px", margin: "auto",marginTop : '20px' }}
+  />
+  {/* Display the selected value */}
+  <p style={{ fontSize: "12px", margin: "auto", justifyContent: "center",paddingTop : '10px' }}>
+    Temps Max: {selectedValue}
+  </p>
+    <div>
+        <JourneyTimes startstation='stop_area:SNCF:87286526' arrivalstation='stop_area:SNCF:87286005' cursorvalue = {selectedValue}/>
+   </div>
 
-  
 
-      <div style={{ display: "flex", flexDirection: "column", margin: 'auto'  }}>
-
-
-        {rows.map((row, index) => {
-          const depart = row.depart;
-          const arrivee = row.arrivee;
-
-          const formatted_start = new Date(createFormattedDate(depart));
-          const formatted_end = new Date(createFormattedDate(arrivee));
-
-          const heureDepart = `${depart.slice(9, 11)}:${depart.slice(11, 13)}`;
-          const heureArrivee = `${arrivee.slice(9, 11)}:${arrivee.slice(11, 13)}`;
-
-          const diff = (new Date(formatted_end) - new Date(formatted_start)) / (1000 * 60); // Différence en minutes
-
-          if (diff <= selectedValue) {
-            return (
-              <div key={row.name} style={{ display: 'flex', marginBottom: '-35px', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
-                <div style={{ paddingLeft: '0px', marginTop: '35px' }}>
-                  <h3>{row.name}</h3>
-                  <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
-                    <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
-                    <p style={{ marginRight: '20px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
-                    <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden' }}>{row.name_arrivee}</p>
-                    <p style={{ marginRight: '20px', fontWeight: 'bold', width: '40px' }}>{heureArrivee}</p>
-                  </div>
-
-                </div>
-              </div>
-            );
-          } return null;
-        })}
-        
+   <div>
+        <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286526' cursorvalue = {selectedValue}/>
+   </div>
+   <div  style ={{display: "flex", flexDirection: "column", margin: 'auto',marginTop : '100px' }} >
+      <button onClick={JourneyTimes.fetchData} style={{width: '80px',height : '50px',borderRadius :'2px'}} >Refresh</button>
       </div>
-      <div  style ={{display: "flex", flexDirection: "column", margin: 'auto',marginTop : '100px' }} >
-      <button onClick={fetchData} style={{width: '80px',height : '50px',borderRadius :'2px'}} >Refresh</button>
-      </div>
-    </div>
+   </div>
+
   );
-  
-  
-  
-  
-};
+}
 
-export default JourneyTimes;
+export default App;
