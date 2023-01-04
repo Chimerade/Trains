@@ -40,7 +40,7 @@ const JourneyTimes = (props) => {
 
   useEffect(() => {
     fetchData();
-  });
+  },[startstation,arrivalstation,cursorvalue]);
 
   
   const rows = [];

@@ -33,7 +33,7 @@ function App() {
         <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286526' cursorvalue = {selectedValue}/>
    </div>
    <div  style ={{display: "flex", flexDirection: "column", margin: 'auto',marginTop : '100px' }} >
-      <button onClick={JourneyTimes.fetchData} style={{width: '80px',height : '50px',borderRadius :'2px'}} >Refresh</button>
+     {/* <button onClick={JourneyTimes.fetchData} style={{width: '80px',height : '50px',borderRadius :'2px'}} >Refresh</button> */}
       </div>
    </div>
 
