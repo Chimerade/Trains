@@ -16,22 +16,21 @@ const JourneyTimes = () => {
   const [response, setResponse] = useState({});
   const [selectedValue, setSelectedValue] = useState(15); // curseur
 
+  const fetchData = async () => {
+    const currentTime = new Date().toISOString();
+    const result = await fetch(
+      `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=4`,
+      {
+        headers: {
+          Authorization:  process.env.REACT_APP_SNCF_API_KEY,
+        },
+      }
+    );
+    const data = await result.json(); // parse the response as JSON
+    setResponse(data);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const currentTime = new Date().toISOString();
-      const result = await fetch(
-        `https://api.sncf.com/v1/coverage/sncf/journeys?from=stop_area:SNCF:87286526&to=stop_area:SNCF:87286005&datetime=${currentTime}&min_nb_journeys=4`,
-        {
-          headers: {
-            Authorization:  process.env.REACT_APP_SNCF_API_KEY,
-          },
-        }
-      );
-      const data = await result.json(); // parse the response as JSON
-      setResponse(data);
-    };
-
     fetchData();
   }, []);
 
@@ -115,7 +114,10 @@ const JourneyTimes = () => {
             );
           } return null;
         })}
-
+        
+      </div>
+      <div  style ={{display: "flex", flexDirection: "column", margin: 'auto',marginTop : '100px' }} >
+      <button onClick={fetchData} style={{width: '80px'}} >Refresh</button>
       </div>
     </div>
   );
