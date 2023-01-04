@@ -63,7 +63,7 @@ const JourneyTimes = () => {
 
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto'}}>
+    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px'}}>
         {/* Display the slider */}
         <input
           type="range"
