@@ -40,7 +40,7 @@ const JourneyTimes = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   
   const rows = [];
