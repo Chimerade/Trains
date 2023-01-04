@@ -63,7 +63,7 @@ const JourneyTimes = () => {
 
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto'}}>
         {/* Display the slider */}
         <input
           type="range"
@@ -83,7 +83,7 @@ const JourneyTimes = () => {
 
   
 
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', width: '500px', maxWidth: '1000px', margin: 'auto' }}>
+      <div style={{ display: "flex", flexDirection: "column", margin: 'auto'  }}>
 
 
         {rows.map((row, index) => {
@@ -100,7 +100,7 @@ const JourneyTimes = () => {
 
           if (diff <= selectedValue) {
             return (
-              <div key={row.name} style={{ display: 'block', marginBottom: '-35px', borderBottom: '1px solid grey' }}>
+              <div key={row.name} style={{ display: 'flex', marginBottom: '-35px', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
                 <div style={{ paddingLeft: '0px', marginTop: '35px' }}>
                   <h3>{row.name}</h3>
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
