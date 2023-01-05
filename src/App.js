@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [selectedValue, setSelectedValue] = useState(20); // curseur
   const [direction, setDirection] = useState(true); // variable pour stocker l'état du bouton Swipe
-  const [activeTab, setActiveTab] = useState('Seclin');
+  const [activeTab, setActiveTab] = useState('Templemars');
 
 
   return (
@@ -29,7 +29,7 @@ function App() {
       <p style={{ fontSize: "12px", margin: "auto", justifyContent: "center", paddingTop: '10px' }}>
         Temps Max: {selectedValue}
       </p>
-      <Tabs variant="pills" activeKey={activeTab} onSelect={(key) => setActiveTab(key)}  style={{ margin: "auto", marginTop: '30px' }}>
+      <Tabs  variant="pills" activeKey={activeTab} onSelect={(key) => setActiveTab(key)}  style={{ margin: "auto", marginTop: '30px' }}>
         <Tab eventKey="Seclin" title="Seclin">
           {activeTab === 'Seclin' && (
             <>
@@ -68,7 +68,7 @@ function App() {
 
       <div style={{ display: "flex", flexDirection: "row", margin: 'auto', marginTop: '50px' }} >
         {/* Bouton Swipe */}
-        <img src={reverse_image} alt="Reverse button" onClick={() => setDirection(!direction)} style={{ maxWidth: '50px', maxHeight: '50px', marginRight: '20px' }} />
+        <img src={reverse_image} alt="Reverse button" onClick={() => setDirection(!direction)} style={{ maxWidth: '50px', maxHeight: '50px' }} />
 
         {/* 
         <div style={{ display: "flex", flexDirection: "row" }} >
