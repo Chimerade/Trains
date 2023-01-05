@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
+    <div style={{ zoom : '100%', overflowX : 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
       {/* Display the slider */}
       <input
         type="range"
