@@ -63,7 +63,7 @@ const JourneyTimes = (props) => {
                 
                 rows.push({
                     name_depart: journey.sections[1].from.stop_point.name,
-                    name_arrivee: lastSection.to.name,
+                    name_arrivee: lastSection.to.stop_point.name,
                     depart: journey.departure_date_time,
                     arrivee: journey.arrival_date_time,
                 });
@@ -106,10 +106,10 @@ const JourneyTimes = (props) => {
                 <div style={{ paddingLeft: '0px', marginTop: '5px',marginBottom:'-10px' }}>
                   
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
-                    <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
-                    <p style={{ marginRight: '20px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
-                    <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden' }}>{row.name_arrivee}</p>
-                    <p style={{ marginRight: '20px', fontWeight: 'bold', width: '40px' }}>{heureArrivee} </p>
+                    <p style={{ marginRight: '10px', fontSize: '12px', width: '80px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
+                    <p style={{ marginRight: '10px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
+                    <p style={{ marginRight: '10px', fontSize: '12px', width: '80px', textOverflow: 'ellipsis', overflow: 'hidden' }}>{row.name_arrivee}</p>
+                    <p style={{ marginRight: '10px', fontWeight: 'bold', width: '40px' }}>{heureArrivee} </p>
                     <p style={{ marginRight: '10px', fontWeight: 'normal', width: '40px',fontSize: '10px' }}>({diff}')</p>
                   </div>
 
