@@ -33,7 +33,7 @@ function App() {
         <Tab eventKey="Seclin" title="Seclin">
           {activeTab === 'Seclin' && (
             <>
-              <p style={{ fontWeight: 'bold', textAlign: 'left', width: '57%', margin: '0 auto', paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Seclin" : "Vers Seclin de Lille Flandres"}</p>
+              <p style={{ marginLeft : '30%',fontWeight: 'bold', paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Seclin" : "Vers Seclin de Lille Flandres"}</p>
               {direction ?
                 <JourneyTimes startstation='stop_area:SNCF:87286518' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
                 <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286518' cursorvalue={selectedValue} />
@@ -44,7 +44,7 @@ function App() {
         <Tab eventKey="Templemars" title="Templemars">
           {activeTab === 'Templemars' && (
             <>
-              <p style={{ fontWeight: 'bold', textAlign: 'left', width: '57%', margin: '0 auto', paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Templemars" : "Vers Templemars de Lille Flandres"}</p>
+              <p style={{ marginLeft : '30%',fontWeight: 'bold', textAlign: 'left', paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Templemars" : "Vers Templemars de Lille Flandres"}</p>
               {direction ?
                 <JourneyTimes startstation='stop_area:SNCF:87286526' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
                 <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286526' cursorvalue={selectedValue} />
@@ -55,7 +55,7 @@ function App() {
         <Tab eventKey="Lesquin" title="Lesquin">
           {activeTab === 'Lesquin' && (
             <>
-              <p style={{ fontWeight: 'bold', textAlign: 'left', width: '57%', margin: '0 auto', paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Lesquin" : "Vers Lesquin de Lille Flandres"}</p>
+              <p style={{ fontWeight: 'bold', marginLeft : '30%',  paddingTop: '25px', marginBottom: '-20px' }}>{direction ? "Vers Lille Flandres de Lesquin" : "Vers Lesquin de Lille Flandres"}</p>
               {direction ?
                 <JourneyTimes startstation='stop_area:SNCF:87286849' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
                 <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286849' cursorvalue={selectedValue} />
