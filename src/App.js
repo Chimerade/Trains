@@ -66,7 +66,7 @@ function App() {
       </Tabs>
 
 
-      <div style={{ display: "flex", flexDirection: "row", margin: 'auto', marginTop: '100px' }} >
+      <div style={{ display: "flex", flexDirection: "row", margin: 'auto', marginTop: '50px' }} >
         {/* Bouton Swipe */}
         <img src={reverse_image} alt="Reverse button" onClick={() => setDirection(!direction)} style={{ maxWidth: '50px', maxHeight: '50px', marginRight: '20px' }} />
 
