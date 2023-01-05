@@ -40,6 +40,8 @@
 }
 
 
-
+.tab-without-bullet {
+  list-style: none;
+}
 
 

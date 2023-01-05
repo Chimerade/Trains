@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import './App.css';
 
 function createFormattedDate(dateString) {
   const year = dateString.substring(0,4);
@@ -20,10 +21,13 @@ const JourneyTimes = (props) => {
   
   const [response, setResponse] = useState({});
 
+  const refreshData = () => {
+    setResponse({});
+  };
+
   useEffect(() => {
     async function fetchData() {
     const currentTime = new Date().toISOString();
-
     const result = await fetch(
         
       `https://api.sncf.com/v1/coverage/sncf/journeys?from=${startstation}&to=${arrivalstation}&datetime=${currentTime}&min_nb_journeys=6`,
@@ -37,12 +41,13 @@ const JourneyTimes = (props) => {
     const data = await result.json(); // parse the response as JSON
     setResponse(data);
      }
-    fetchData();
-  }, [startstation, arrivalstation]);
+     fetchData();
+    }, [startstation, arrivalstation]);
 
+    useEffect(() => {
+      refreshData();
+    }, []);
 
-
-  
   const rows = [];
 
   if (response.hasOwnProperty('journeys') && Array.isArray(response.journeys)) {
@@ -74,7 +79,7 @@ const JourneyTimes = (props) => {
 
   return (
 
-    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '0px',fontWeight: 'normal'}}>
+    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px',fontWeight: 'normal'}}>
        
 
 
@@ -97,7 +102,7 @@ const JourneyTimes = (props) => {
 
           if (diff <= cursorvalue) {
             return (
-              <div key={row.name} style={{ display: 'flex', marginBottom: '-35px', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
+              <div key={row.name} style={{ display: 'flex', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
                 <div style={{ paddingLeft: '0px', marginTop: '15px' }}>
                   <h3>{row.name}</h3>
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
