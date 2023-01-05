@@ -79,7 +79,7 @@ const JourneyTimes = (props) => {
 
   return (
 
-    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px',fontWeight: 'normal'}}>
+    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '40px',fontWeight: 'normal'}}>
        
 
 
@@ -103,8 +103,8 @@ const JourneyTimes = (props) => {
           if (diff <= cursorvalue) {
             return (
               <div key={row.name} style={{ display: 'flex', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
-                <div style={{ paddingLeft: '0px', marginTop: '8px' }}>
-                  <h3>{row.name}</h3>
+                <div style={{ paddingLeft: '0px', marginTop: '5px',marginBottom:'-10px' }}>
+                  
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
                     <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
                     <p style={{ marginRight: '20px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
