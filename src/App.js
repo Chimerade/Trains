@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div style={{ zoom : '100%', overflowX : 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
-      {/* Display the slider */}
+      <div style={{ fontSize: "50px", fontWeight :"bolder", width: "300px", margin: "auto", marginTop: '10px' }}>OneClick-RT</div>
       <input
         type="range"
         min={10}
