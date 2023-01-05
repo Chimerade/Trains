@@ -107,10 +107,10 @@ const JourneyTimes = (props) => {
                   
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
                     <p style={{ marginRight: '10px', fontSize: '12px', width: '80px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
-                    <p style={{ marginRight: '10px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
+                    <p style={{ marginRight: '25px', fontWeight: 'bold', width: '40px' }}>{heureDepart}</p>
                     <p style={{ marginRight: '10px', fontSize: '12px', width: '80px', textOverflow: 'ellipsis', overflow: 'hidden' }}>{row.name_arrivee}</p>
                     <p style={{ marginRight: '10px', fontWeight: 'bold', width: '40px' }}>{heureArrivee} </p>
-                    <p style={{ marginRight: '10px', fontWeight: 'normal', width: '40px',fontSize: '10px' }}>({diff}')</p>
+                    <p style={{ marginRight: '15px', fontWeight: 'normal', width: '40px',fontSize: '10px' }}>({diff}')</p>
                   </div>
 
                 </div>

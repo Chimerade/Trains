@@ -5,15 +5,16 @@ import './App.css';
 import reverse_image from './reverse.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+
 function App() {
   const [selectedValue, setSelectedValue] = useState(20); // curseur
   const [direction, setDirection] = useState(true); // variable pour stocker l'état du bouton Swipe
   const [activeTab, setActiveTab] = useState('Templemars');
 
-
   return (
-    <div style={{ zoom : '100%', overflowX : 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
-      <div style={{ fontSize: "50px", fontWeight :"bolder", width: "300px", margin: "auto", marginTop: '10px' }}>OneClick-RT</div>
+    <div style={{ zoom: '100%', overflowX: 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
+      <div style={{ fontSize: "50px", fontWeight: "bolder", width: "300px", margin: "auto", marginTop: '10px' }}>OneClick-RT</div>
       <input
         type="range"
         min={10}
@@ -29,11 +30,11 @@ function App() {
       <p style={{ fontSize: "12px", margin: "auto", justifyContent: "center", paddingTop: '10px' }}>
         Temps Max: {selectedValue}
       </p>
-      <Tabs  variant="pills" activeKey={activeTab} onSelect={(key) => setActiveTab(key)}  style={{ margin: "auto", marginTop: '30px' }}>
+      <Tabs variant="pills" activeKey={activeTab} onSelect={(key) => setActiveTab(key)} style={{ margin: "auto", marginTop: '30px' }}>
         <Tab eventKey="Seclin" title="Seclin">
           {activeTab === 'Seclin' && (
             <>
-             
+
               {direction ?
                 <JourneyTimes startstation='stop_area:SNCF:87286518' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
                 <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286518' cursorvalue={selectedValue} />
@@ -44,7 +45,7 @@ function App() {
         <Tab eventKey="Templemars" title="Templemars">
           {activeTab === 'Templemars' && (
             <>
-             
+
               {direction ?
                 <JourneyTimes startstation='stop_area:SNCF:87286526' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
                 <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286526' cursorvalue={selectedValue} />
@@ -55,10 +56,10 @@ function App() {
         <Tab eventKey="Lesquin" title="Lesquin">
           {activeTab === 'Lesquin' && (
             <>
-              
+
               {direction ?
-                <JourneyTimes startstation='stop_area:SNCF:87286849' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} /> :
-                <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286849' cursorvalue={selectedValue} />
+                <JourneyTimes startstation='stop_area:SNCF:87286005' arrivalstation='stop_area:SNCF:87286849' cursorvalue={selectedValue} /> :
+                <JourneyTimes startstation='stop_area:SNCF:87286849' arrivalstation='stop_area:SNCF:87286005' cursorvalue={selectedValue} />
               }
             </>
           )}
@@ -66,19 +67,30 @@ function App() {
       </Tabs>
 
 
-      <div style={{ display: "flex", flexDirection: "row", margin: 'auto', marginTop: '50px' }} >
-        {/* Bouton Swipe */}
-        <img src={reverse_image} alt="Reverse button" onClick={() => setDirection(!direction)} style={{ maxWidth: '50px', maxHeight: '50px' }} />
-
-        {/* 
-        <div style={{ display: "flex", flexDirection: "row" }} >
-        <img src={refresh_image} alt="Refresh button" onClick={JourneyTimes.refreshData} style={{ maxWidth: '50px', maxHeight: '50px'}} />
+      <div style={{ display: 'flex',flexDirection: 'row',margin: 'auto', marginTop: '50px', alignItems: 'center' ,flex: 0  }}>
+        {/* Texte 1 */}
+      { direction ? (
+        <div style={{ fontSize: "20px", fontWeight: "bolder",width: '110px', marginRight: '20px',height: '30px',textAlign: 'right' }}>
+          <p>Vendeville</p>
         </div>
-        */}
+      ) : (
+        <div style={{ fontSize: "20px", fontWeight: "bolder",width: '110px', marginRight: '20px',height: '30px',textAlign: 'right'}} >
+          <p>Lille</p>
+        </div>
+      )}
 
-
-
-
+      {/* Bouton Swipe */}
+      <img src={reverse_image} alt="Reverse button" onClick={() => setDirection(!direction)} style={{ flex: 0, width: '50px', height: '50px',marginRight: '20px',marginLeft: '20px'}} />
+      {/* Texte 2 */}
+      { direction ? (
+        <div style={{ fontSize: "20px", fontWeight: "bolder",width: '110px', marginLeft: '20px',height: '30px',textAlign: 'left'}}>
+          <p>Lille</p>
+        </div>
+      ) : (
+        <div style={{ fontSize: "20px", fontWeight: "bolder",width: '110px', marginLeft: '20px',height: '30px',textAlign: 'left' }}>
+          <p>Vendeville</p>
+        </div>
+      )}
       </div>
     </div>
   );
