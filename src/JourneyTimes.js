@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 
 function createFormattedDate(dateString) {
   const year = dateString.substring(0,4);
@@ -20,8 +20,8 @@ const JourneyTimes = (props) => {
   
   const [response, setResponse] = useState({});
 
-
-  const fetchData = async () => {
+  useEffect(() => {
+    async function fetchData() {
     const currentTime = new Date().toISOString();
 
     const result = await fetch(
@@ -36,11 +36,11 @@ const JourneyTimes = (props) => {
     
     const data = await result.json(); // parse the response as JSON
     setResponse(data);
-  };
-
-  useEffect(() => {
+     }
     fetchData();
-  },[startstation,arrivalstation,cursorvalue]);
+  }, [startstation, arrivalstation]);
+
+
 
   
   const rows = [];
@@ -74,7 +74,7 @@ const JourneyTimes = (props) => {
 
   return (
 
-    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '20px'}}>
+    <div style={{ display: "flex", flexDirection: "column" ,width: '100%', maxWidth: '100%', margin: 'auto',paddingTop : '0px',fontWeight: 'normal'}}>
        
 
 
@@ -98,7 +98,7 @@ const JourneyTimes = (props) => {
           if (diff <= cursorvalue) {
             return (
               <div key={row.name} style={{ display: 'flex', marginBottom: '-35px', borderBottom: '1px solid grey',flexWrap: 'wrap',justifyContent: 'space-between' }}>
-                <div style={{ paddingLeft: '0px', marginTop: '35px' }}>
+                <div style={{ paddingLeft: '0px', marginTop: '15px' }}>
                   <h3>{row.name}</h3>
                   <div style={{ display: 'flex', alignItems: 'center', paddingLeft: '20px' }}>
                     <p style={{ marginRight: '20px', fontSize: '12px', width: '75px', textOverflow: 'ellipsis', overflow: 'hidden', lineHeight: '1' }}>{row.name_depart}</p>
