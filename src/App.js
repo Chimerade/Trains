@@ -14,10 +14,10 @@ function App() {
   const [activeTab, setActiveTab] = useState('Templemars');
 
   return (
-    <div style={{ zoom: '100%', overflowX: 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
-       <img src={logo_image} alt="Logo Traintrain" style={{  width: '30%', height: '30%',margin: "auto", marginTop: '10px'}} />
+    <div style={{ zoom: '100%', overflowX: 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '0px' }}>
+       <img src={logo_image} alt="Logo Traintrain" style={{  width: '35%', height: '35%',margin: "auto", marginTop: '10px'}} />
 
-      <div style={{ fontSize: "15px", fontWeight: "bolder", width: "195px35px", margin: "auto" }}>TrainTrain</div>
+      <div style={{ fontSize: "21px", fontWeight: "bolder", width: "195px35px", margin: "auto" }}>TrainTrain</div>
       <input
         type="range"
         min={10}
@@ -27,7 +27,7 @@ function App() {
         onChange={(event) => {
           setSelectedValue(event.target.value);
         }}
-        style={{ height: "15px", width: "200px", margin: "auto", marginTop: '30px' }}
+        style={{ height: "15px", width: "200px", margin: "auto", marginTop: '20px' }}
       />
       {/* Display the selected value */}
       <p style={{ fontSize: "12px", margin: "auto", justifyContent: "center", paddingTop: '10px' }}>
