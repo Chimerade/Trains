@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div style={{ zoom: '100%', overflowX: 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '0px' }}>
-       <img src={logo_image} alt="Logo Traintrain" style={{  width: '35%', height: '35%',margin: "auto", marginTop: '10px'}} />
+       <img src={logo_image} alt="Logo Traintrain" style={{  width: '136px', height: '95px%',margin: "auto", marginTop: '10px'}} />
 
       <div style={{ fontSize: "21px", fontWeight: "bolder", width: "195px35px", margin: "auto" }}>TrainTrain</div>
       <input
