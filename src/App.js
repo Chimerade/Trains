@@ -3,6 +3,7 @@ import JourneyTimes from './JourneyTimes';
 import { Tab, Tabs } from 'react-bootstrap';
 import './App.css';
 import reverse_image from './reverse.png';
+import logo_image from './Logo_traintrain.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -14,7 +15,9 @@ function App() {
 
   return (
     <div style={{ zoom: '100%', overflowX: 'hidden', display: "flex", flexDirection: "column", width: '100%', maxWidth: '100%', margin: 'auto', paddingTop: '20px' }}>
-      <div style={{ fontSize: "50px", fontWeight: "bolder", width: "300px", margin: "auto", marginTop: '10px' }}>OneClick-RT</div>
+       <img src={logo_image} alt="Logo Traintrain" style={{  width: '15%', height: '15%',margin: "auto", marginTop: '10px'}} />
+
+      <div style={{ fontSize: "20px", fontWeight: "bolder", width: "195px35px", margin: "auto" }}>TrainTrain</div>
       <input
         type="range"
         min={10}
